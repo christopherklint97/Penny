@@ -8,14 +8,3 @@ body {
 .yellowtail {
   font-family: 'Yellowtail', cursive;
 }
-
-/* || HEADER STYLES */
-#header {
-  background-color: #0f084b;
-}
-
-.nav-link,
-.navbar-brand,
-.navbar-toggler-icon {
-  color: white;
-}
