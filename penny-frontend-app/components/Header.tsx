@@ -3,7 +3,7 @@ import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap'
 
 export function Header() {
   return (
-    <Navbar expand="md" className={styles.blueBg}>
+    <Navbar expand="md" className={`${styles.blueBg} + sticky-top`}>
       <NavbarBrand href="/" className={`${styles.whiteText} yellowtail`}>
         Penny
       </NavbarBrand>
