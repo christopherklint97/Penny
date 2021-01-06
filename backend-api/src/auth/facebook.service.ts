@@ -5,7 +5,7 @@ import { env } from 'process';
 import { UserService } from 'src/users/users.service';
 
 @Injectable()
-export class GoogleService {
+export class FacebookService {
   constructor(
     private GoogleStrategy = Strategy,
     private userService: UserService,

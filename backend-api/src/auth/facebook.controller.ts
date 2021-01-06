@@ -1,7 +1,7 @@
 import { Controller, Get, Redirect } from '@nestjs/common';
 
-@Controller('google')
-export class GoogleController {
+@Controller('facebook')
+export class FacebookController {
   @Get()
   authenicate() {
     return;

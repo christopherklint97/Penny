@@ -42,14 +42,14 @@ export class UserService {
     });
   }
 
-  // find user based on googleId or facebookId, otherwise create the user
+  // Find user based on Google ID or Facebook ID, otherwise create the user
   async findOrCreateUser(
     data: Prisma.UserCreateInput,
     provider: Provider,
   ): Promise<User> {
-    let user;
+    let user: any;
 
-    // find user depending on if we are logging in with facebook or google
+    // Find user depending on if we are logging in with Facebook or Google
     if (provider.name === 'facebook') {
       user = await this.prisma.user.findFirst({
         where: { facebookId: provider.id },
@@ -60,7 +60,7 @@ export class UserService {
       });
     }
 
-    // if user, return. Othwerise create user
+    // If user, return user. Othwerise create user
     if (user) {
       return user;
     } else if (provider.name === 'facebook') {

@@ -1,14 +1,13 @@
 import { Module } from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service';
 import { GoogleController } from './google.controller';
-import { UsersService } from '../users/users.service';
-import { UsersModule } from 'src/users/users.module';
+import { UserModule } from 'src/users/users.module';
 import { GoogleService } from './google.service';
 
 @Module({
-  imports: [UsersModule],
+  imports: [UserModule],
   controllers: [GoogleController],
   providers: [GoogleService, PrismaService],
-  exports: [AuthService],
+  exports: [GoogleService],
 })
 export class AuthModule {}
