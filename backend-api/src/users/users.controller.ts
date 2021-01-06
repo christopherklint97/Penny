@@ -8,10 +8,10 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { CreateUserDto, UpdateUserDto, ListAllEntities } from './dto';
+import { CreateUserDto, UpdateUserDto, ListAllEntities } from './dto/users.dto';
 
 @Controller('users')
-export class UsersController {
+export class UserController {
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
     return 'This action adds a new user';

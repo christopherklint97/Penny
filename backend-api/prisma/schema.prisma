@@ -10,9 +10,12 @@ datasource db {
 // Model declarations for Prisma
 model User {
   id         Int           @id @default(autoincrement())
-  name       String
+  firstName  String
+  lastName   String
   email      String
   profileImg String
+  googleId   String?
+  facebookId String?
   groups     GroupToUser[]
 }
 

@@ -2,8 +2,13 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 import { Prisma, User } from '@prisma/client';
 
+interface Provider {
+  name: string;
+  id: string;
+}
+
 @Injectable()
-export class UsersService {
+export class UserService {
   constructor(private prisma: PrismaService) {}
 
   async user(
@@ -35,6 +40,40 @@ export class UsersService {
     return this.prisma.user.create({
       data,
     });
+  }
+
+  // find user based on googleId or facebookId, otherwise create the user
+  async findOrCreateUser(
+    data: Prisma.UserCreateInput,
+    provider: Provider,
+  ): Promise<User> {
+    let user;
+
+    // find user depending on if we are logging in with facebook or google
+    if (provider.name === 'facebook') {
+      user = await this.prisma.user.findFirst({
+        where: { facebookId: provider.id },
+      });
+    } else {
+      user = await this.prisma.user.findFirst({
+        where: { googleId: provider.id },
+      });
+    }
+
+    // if user, return. Othwerise create user
+    if (user) {
+      return user;
+    } else if (provider.name === 'facebook') {
+      data.facebookId = provider.id;
+      return this.prisma.user.create({
+        data,
+      });
+    } else {
+      data.googleId = provider.id;
+      return this.prisma.user.create({
+        data,
+      });
+    }
   }
 
   async updateUser(params: {
