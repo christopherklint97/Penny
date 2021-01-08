@@ -1,6 +1,5 @@
 import sequelize from './db';
 import { Model, DataTypes } from 'sequelize';
-import Group from './group';
 
 /** Database model and related functions for users. */
 

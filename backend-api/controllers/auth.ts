@@ -1,8 +1,9 @@
 /** Routes for authentication. */
-const express = require('express');
-const router = express.Router();
+import { Request, Response, NextFunction, Router } from 'express';
 import createToken from '../helpers/createToken';
 import passport from '../middleware/passport';
+
+const router = Router();
 
 router.get('/facebook', passport.authenticate('facebook'));
 
@@ -14,11 +15,11 @@ router.get(
   }),
 );
 
-router.get('/fail', (req, res) => {
+router.get('/fail', (req: Request, res: Response) => {
   res.send('Failed attempt');
 });
 
-router.get('/success', (req, res, next) => {
+router.get('/success', (req: Request, res: Response, next: NextFunction) => {
   try {
     const user = req.user;
     const token = createToken(user);

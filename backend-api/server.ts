@@ -1,7 +1,7 @@
 /** Start server for penny. */
-const app = require('./app');
-const { PORT } = require('./config');
+import app from './app';
+import { PORT } from './config';
 
 app.listen(PORT, function () {
-  console.log(`Server running on port ${PORT}!`);
+  console.log(`Listening on port ${PORT}!`);
 });

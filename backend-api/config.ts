@@ -1,6 +1,6 @@
 /** Shared config for application; can be req'd many places. */
 
-const dotenv = require('dotenv');
+import * as dotenv from 'dotenv';
 
 dotenv.config();
 

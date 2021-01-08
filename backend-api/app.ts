@@ -1,5 +1,4 @@
 /** Express app for penny. */
-const express = require('express');
 import { NextFunction, Request, Response } from 'express';
 
 import ExpressError from './helpers/expressError';
@@ -10,6 +9,7 @@ import authRoutes from './controllers/auth';
 import sequelize from './models/db';
 import passport from './middleware/passport';
 
+const express = require('express');
 const app = express();
 
 // sync database
@@ -50,4 +50,4 @@ app.use(function (
   });
 });
 
-module.exports = app;
+export default app;
