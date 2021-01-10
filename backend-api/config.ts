@@ -6,7 +6,11 @@ dotenv.config();
 
 const SECRET_KEY = process.env.SECRET_KEY || 'test';
 
-const PORT = +process.env.PORT || 3001;
+const PORT = +process.env.PORT || 3000;
+
+const BACKEND_URL = process.env.BACKEND_API_URL;
+
+const FRONTEND_URL = process.env.FRONTEND_URL;
 
 // database is:
 //
@@ -21,4 +25,4 @@ if (process.env.NODE_ENV === 'test') {
   DB_URI = process.env.DATABASE_URL;
 }
 
-export { SECRET_KEY, PORT, DB_URI };
+export { SECRET_KEY, PORT, DB_URI, BACKEND_URL, FRONTEND_URL };

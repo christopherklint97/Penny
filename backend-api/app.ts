@@ -5,24 +5,28 @@ import ExpressError from './helpers/expressError';
 
 // import usersRoutes from './controllers/users';
 import authRoutes from './controllers/auth';
+import mainRoutes from './controllers/main';
 
 import sequelize from './models/db';
 import passport from './middleware/passport';
 
-const express = require('express');
+import * as express from 'express';
 const app = express();
 
 // sync database
 (async () => await sequelize.sync({ force: true }))();
 
-//  Use application-level middleware for common functionality, including
-// logging, parsing, and passport.
-app.use(require('body-parser').urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.json()); // for parsing application/json
+app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
+// Initialize Passport and restore authentication state, if any, from the
+// session.
 app.use(passport.initialize());
+app.use(passport.session());
 
 // app.use('/users', usersRoutes);
 app.use('/auth', authRoutes);
+app.use('', mainRoutes);
 
 /** 404 handler */
 

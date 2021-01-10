@@ -12,6 +12,7 @@ export function Footer() {
           <NavLink
             href="https://github.com/christopherklint97/Penny"
             className={`${styles.whiteText} yellowtail`}
+            target="_blank"
           >
             Made with love on Github
           </NavLink>

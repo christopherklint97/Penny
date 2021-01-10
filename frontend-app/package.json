@@ -26,14 +26,21 @@
     ]
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.0",
+    "@types/react-redux": "^7.1.15",
+    "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
+    "cors": "^2.8.5",
     "next": "latest",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "reactstrap": "^8.8.1"
+    "react-redux": "^7.2.2",
+    "reactstrap": "^8.8.1",
+    "redux-devtools-extension": "^2.13.8"
   },
   "devDependencies": {
     "@testing-library/react": "^10.0.1",
+    "@types/cors": "^2.8.9",
     "@types/jest": "^25.1.4",
     "@types/node": "^13.9.5",
     "@types/react": "^16.9.27",
@@ -49,6 +56,7 @@
     "jest-watch-typeahead": "^0.5.0",
     "lint-staged": "^10.0.10",
     "prettier": "^2.0.2",
+    "redux-devtools": "^3.7.0",
     "typescript": "^3.8.3"
   }
 }

@@ -1,7 +1,8 @@
 import User from '../models/user';
-const passport = require('passport');
+import * as passport from 'passport';
 import { Strategy } from 'passport-facebook';
 import ExpressError from '../helpers/expressError';
+import { BACKEND_URL } from '../config';
 
 // Configure the Facebook strategy for use by Passport.
 //
@@ -15,7 +16,8 @@ passport.use(
     {
       clientID: process.env['FACEBOOK_CLIENT_ID'],
       clientSecret: process.env['FACEBOOK_CLIENT_SECRET'],
-      callbackURL: '/auth/facebook/callback',
+      callbackURL: `${BACKEND_URL}/auth/facebook/callback`,
+      profileFields: ['name', 'photos'],
     },
     async function (accessToken, refreshToken, profile, done) {
       // The Facebook profile should be associated
@@ -26,7 +28,6 @@ passport.use(
         where: {
           firstName: profile.name.givenName,
           lastName: profile.name.familyName,
-          email: profile.emails[0].value,
           profileImg: profile.photos[0].value,
           facebookId: profile.id,
         },
@@ -50,5 +51,21 @@ passport.use(
     },
   ),
 );
+
+// Configure Passport authenticated session persistence.
+//
+// In order to restore authentication state across HTTP requests, Passport needs
+// to serialize users into and deserialize users out of the session.  In a
+// production-quality application, this would typically be as simple as
+// supplying the user ID when serializing, and querying the user record by ID
+// from the database when deserializing.
+passport.serializeUser(function (user: User, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function (id: number, done) {
+  const user = User.findByPk(id);
+  done(null, user);
+});
 
 export default passport;

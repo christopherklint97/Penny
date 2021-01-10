@@ -21,7 +21,7 @@ export function InfoCard({ img, title, body }: InfoCardProps) {
         <Card className="shadow p-3 mb-5 bg-white rounded">
           <Row>
             <Col md="6">
-              <CardImg left width="100%" src={img} alt="" />
+              <CardImg width="100%" src={img} alt="" />
             </Col>
             <Col className="d-flex align-items-center">
               <CardBody>

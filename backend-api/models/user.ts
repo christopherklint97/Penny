@@ -8,7 +8,6 @@ export default class User extends Model {
   public firstName: string;
   public lastName: string;
   public fullName: string;
-  public email: string;
   public profileImg: string;
   public faceookId: string;
 }
@@ -37,10 +36,6 @@ User.init(
       set(value) {
         throw new Error('Do not try to set the `fullName` value!');
       },
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
     },
     profileImg: {
       type: DataTypes.STRING,

@@ -1,20 +1,22 @@
 import Head from 'next/head'
 import { Container } from 'reactstrap'
-import { Hero } from '../components/Hero'
+import { HeroWithButton } from '../components/HeroWithButton'
 import { InfoCard } from '../components/InfoCard'
+import { BACKEND_API } from '../config'
 
 const Home = (): JSX.Element => (
-  <div className="container">
+  <Container>
     <Head>
       <title>Penny</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
     <Container className="py-5">
-      <Hero
+      <HeroWithButton
         title="Say hello to Penny"
         text="Your very own travel assistant."
-        btn="Login"
+        btn="Login with Facebook"
+        link={`${BACKEND_API}/auth/facebook`}
       />
       <InfoCard
         img="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1953&q=80"
@@ -31,13 +33,14 @@ const Home = (): JSX.Element => (
         title="All together now"
         body="Add your fellow travel companions so everyone knows about the next stop."
       />
-      <Hero
+      <HeroWithButton
         title="Get started"
         text="Login to create your first trip!"
-        btn="Login"
+        btn="Login with Facebook"
+        link={`${BACKEND_API}/auth/facebook`}
       />
     </Container>
-  </div>
+  </Container>
 )
 
 export default Home
