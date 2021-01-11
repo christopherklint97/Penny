@@ -1,11 +1,11 @@
 import styles from './Header.module.css'
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap'
-import { BACKEND_API } from '../config'
-import { useSelector } from 'react-redux'
-import { RootState } from '../redux/index'
+import { Navbar, NavbarBrand, Nav, NavItem } from 'reactstrap'
+import LoginButton from './LoginButton'
+import LogoutButton from './LogoutButton'
+import { useAuth0 } from '@auth0/auth0-react'
 
 export function Header() {
-  const isLoggedIn = useSelector((state: RootState) => state.login.loggedIn)
+  const { isAuthenticated } = useAuth0()
 
   return (
     <Navbar expand="md" className={`${styles.blueBg} + sticky-top`}>
@@ -14,17 +14,10 @@ export function Header() {
       </NavbarBrand>
       <Nav className="ml-auto" navbar>
         <NavItem>
-          {!isLoggedIn ? (
-            <NavLink
-              href={`${BACKEND_API}/auth/facebook`}
-              className={styles.whiteText}
-            >
-              Login
-            </NavLink>
+          {!isAuthenticated ? (
+            <LoginButton size="sm" />
           ) : (
-            <NavLink href={`api/logout`} className={styles.whiteText}>
-              Logout
-            </NavLink>
+            <LogoutButton size="sm" />
           )}
         </NavItem>
       </Nav>

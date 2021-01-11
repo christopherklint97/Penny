@@ -5,11 +5,11 @@ import { Model, DataTypes } from 'sequelize';
 
 export default class User extends Model {
   public id: number;
-  public firstName: string;
-  public lastName: string;
-  public fullName: string;
+  public name: string;
   public profileImg: string;
   public faceookId: string;
+  public googleId: string;
+  public auth0Id: string;
 }
 
 User.init(
@@ -20,22 +20,9 @@ User.init(
       autoIncrement: true,
       primaryKey: true,
     },
-    firstName: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    fullName: {
-      type: DataTypes.VIRTUAL,
-      get() {
-        return `${this.firstName} ${this.lastName}`;
-      },
-      set(value) {
-        throw new Error('Do not try to set the `fullName` value!');
-      },
     },
     profileImg: {
       type: DataTypes.STRING,
@@ -43,7 +30,12 @@ User.init(
     },
     facebookId: {
       type: DataTypes.STRING,
-      allowNull: false,
+    },
+    googleId: {
+      type: DataTypes.STRING,
+    },
+    auth0Id: {
+      type: DataTypes.STRING,
     },
   },
   {

@@ -1,4 +1,5 @@
 import { Row, Col } from 'reactstrap'
+import LoginButton from './LoginButton'
 
 interface HeroWithButtonProps {
   title: string
@@ -7,20 +8,13 @@ interface HeroWithButtonProps {
   link: string
 }
 
-export function HeroWithButton({
-  title,
-  text,
-  btn,
-  link,
-}: HeroWithButtonProps) {
+export function HeroWithButton({ title, text }: HeroWithButtonProps) {
   return (
     <Row className="my-5">
       <Col className="text-center">
         <h1 className="yellowtail">{title}</h1>
         <p>{text}</p>
-        <a className="btn btn-info" href={link}>
-          {btn}
-        </a>
+        <LoginButton />
       </Col>
     </Row>
   )

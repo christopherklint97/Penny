@@ -1,15 +1,15 @@
 /** Express app for penny. */
 import { NextFunction, Request, Response } from 'express';
-
 import ExpressError from './helpers/expressError';
-
 // import usersRoutes from './controllers/users';
-import authRoutes from './controllers/auth';
-import mainRoutes from './controllers/main';
-
+import userRoutes from './controllers/user';
+import mainRoutes from './controllers/index';
 import sequelize from './models/db';
-import passport from './middleware/passport';
-
+import jwt from 'express-jwt';
+import jwks from 'jwks-rsa';
+import cors from 'cors';
+import helmet from 'helmet';
+import morgan from 'morgan';
 import * as express from 'express';
 const app = express();
 
@@ -19,13 +19,31 @@ const app = express();
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-// Initialize Passport and restore authentication state, if any, from the
-// session.
-app.use(passport.initialize());
-app.use(passport.session());
+// JWT token is checked using middleware
+const jwtCheck = jwt({
+  secret: jwks.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: 'https://dev-5p5e86yy.eu.auth0.com/.well-known/jwks.json',
+  }),
+  audience: 'https://penny.api.christopherklint.com/',
+  issuer: 'https://dev-5p5e86yy.eu.auth0.com/',
+  algorithms: ['RS256'],
+});
+app.use(jwtCheck);
+
+// adding Helmet to enhance your API's security
+app.use(helmet());
+
+// enabling CORS for all requests
+app.use(cors());
+
+// adding morgan to log HTTP requests
+app.use(morgan('combined'));
 
 // app.use('/users', usersRoutes);
-app.use('/auth', authRoutes);
+app.use('/users', userRoutes);
 app.use('', mainRoutes);
 
 /** 404 handler */
