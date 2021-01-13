@@ -7,7 +7,7 @@ import { Footer } from '../components/Footer'
 import Router from 'next/router'
 
 import { Provider } from 'react-redux'
-import store from '../redux/store'
+import { store } from '../redux/store'
 
 import { Auth0Provider } from '@auth0/auth0-react'
 import { REDIRECT_URI } from '../config'
@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
         clientId="3ENhHtttH2DcR01fUy4nItREwIjVfPP4"
         redirectUri={REDIRECT_URI}
         onRedirectCallback={onRedirectCallback}
-        audience="https://dev-5p5e86yy.eu.auth0.com/api/v2/"
+        audience="https://penny.api.christopherklint.com/"
         scope="read:current_user update:current_user_metadata"
       >
         <Layout>

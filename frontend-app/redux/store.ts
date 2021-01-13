@@ -1,5 +1,6 @@
-import { createStore } from 'redux'
-import { devToolsEnhancer } from 'redux-devtools-extension'
-import { rootReducer } from './index'
+import { configureStore } from '@reduxjs/toolkit'
 
-export default createStore(rootReducer, devToolsEnhancer({}))
+import { rootReducer } from './reducers'
+
+export const store = configureStore({ reducer: rootReducer })
+// The store now has redux-thunk added and the Redux DevTools Extension is turned on

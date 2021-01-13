@@ -1,3 +1,4 @@
+/* eslint-disable no-extra-semi */
 import { useEffect } from 'react'
 import { Col, Container, Row } from 'reactstrap'
 import { HeroNoButton } from '../../components/HeroNoButton'
@@ -7,39 +8,37 @@ import axios from 'axios'
 import { BACKEND_API } from '../../config'
 
 const Dashboard = () => {
-  const { getAccessTokenSilently } = useAuth0()
+  const { getAccessTokenSilently, user } = useAuth0()
 
   useEffect(() => {
     ;(async () => {
       try {
-        const accessToken = await getAccessTokenSilently()
-        const res = await axios.get(BACKEND_API, {
-          headers: {
-            // Add the Authorization header to the existing headers
-            Authorization: `Bearer ${accessToken}`,
-          },
+        const token = await getAccessTokenSilently({
+          audience: 'https://penny.api.christopherklint.com/',
+          scope: 'read:current_user update:current_user_metadata',
         })
-        setState({
-          ...state,
-          data: await res.json(),
-          error: null,
-          loading: false,
-        })
+        const res = await axios.post(
+          `${BACKEND_API}/users/add`,
+          { user },
+          {
+            headers: {
+              // Add the Authorization header to the existing headers
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        localStorage.setItem('token', res.data)
       } catch (error) {
-        setState({
-          ...state,
-          error,
-          loading: false,
-        })
+        console.log(error)
       }
     })()
-  })
+  }, [getAccessTokenSilently])
 
   return (
     <Container>
       <HeroNoButton
-        title="Welcome to your dashboard"
-        text="Here can you see your trips and groups all neatly organized."
+        title={`Hi ${user.name.split(' ')[0]},`}
+        text="Welcome to your dashboard!"
       />
       <Row>
         <Profile />

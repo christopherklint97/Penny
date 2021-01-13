@@ -7,9 +7,7 @@ export default class User extends Model {
   public id: number;
   public name: string;
   public profileImg: string;
-  public faceookId: string;
-  public googleId: string;
-  public auth0Id: string;
+  public faceookId?: string;
 }
 
 User.init(
@@ -29,12 +27,6 @@ User.init(
       allowNull: false,
     },
     facebookId: {
-      type: DataTypes.STRING,
-    },
-    googleId: {
-      type: DataTypes.STRING,
-    },
-    auth0Id: {
       type: DataTypes.STRING,
     },
   },

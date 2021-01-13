@@ -5,12 +5,13 @@ import ExpressError from './helpers/expressError';
 import userRoutes from './controllers/user';
 import mainRoutes from './controllers/index';
 import sequelize from './models/db';
-import jwt from 'express-jwt';
-import jwks from 'jwks-rsa';
-import cors from 'cors';
-import helmet from 'helmet';
-import morgan from 'morgan';
+import * as jwt from 'express-jwt';
+import * as jwks from 'jwks-rsa';
+import * as cors from 'cors';
+import * as helmet from 'helmet';
+import * as morgan from 'morgan';
 import * as express from 'express';
+import { FRONTEND_URL } from './config';
 const app = express();
 
 // sync database
