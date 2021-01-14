@@ -1,11 +1,10 @@
 /* eslint-disable no-extra-semi */
 import { useEffect } from 'react'
-import { Col, Container, Row } from 'reactstrap'
-import { HeroNoButton } from '../../components/HeroNoButton'
-import Profile from '../../components/Profile'
+import Hero from '../../components/Hero'
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react'
 import axios from 'axios'
 import { BACKEND_API } from '../../config'
+import AddTrip from '../../components/AddTrip'
 
 const Dashboard = () => {
   const { getAccessTokenSilently, user } = useAuth0()
@@ -18,7 +17,7 @@ const Dashboard = () => {
           scope: 'read:current_user update:current_user_metadata',
         })
         const res = await axios.post(
-          `${BACKEND_API}/users/add`,
+          `${BACKEND_API}/users`,
           { user },
           {
             headers: {
@@ -35,33 +34,14 @@ const Dashboard = () => {
   }, [getAccessTokenSilently])
 
   return (
-    <Container>
-      <HeroNoButton
+    <div className="w-3/4 mx-auto">
+      <Hero
         title={`Hi ${user.name.split(' ')[0]},`}
         text="Welcome to your dashboard!"
       />
-      <Row>
-        <Profile />
-        <Col></Col>
-        <Col></Col>
-      </Row>
-    </Container>
+      <AddTrip />
+    </div>
   )
 }
-
-// export async function getStaticProps() {
-//   const res = await axios(`https://.../data`)
-//   const data = await res.json()
-
-//   if (!data) {
-//     return {
-//       notFound: true,
-//     }
-//   }
-
-//   return {
-//     props: {}, // will be passed to the page component as props
-//   }
-// }
 
 export default withAuthenticationRequired(Dashboard)

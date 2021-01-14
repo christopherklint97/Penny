@@ -1,6 +1,6 @@
 import sequelize from './db';
 import { Model, DataTypes, BelongsToMany } from 'sequelize';
-import City from './city';
+import Trip from './trip';
 
 /** Database model and related functions for gplaces. */
 
@@ -41,7 +41,7 @@ Place.init(
 );
 
 // User can have many groups (many-to-many relationship)
-City.belongsToMany(Place, { through: 'Cities_Places' });
+Trip.belongsToMany(Place, { through: 'Trips_Places' });
 
 // Group can have many users (many-to-many relationship)
-Place.belongsToMany(City, { through: 'Cities_Places' });
+Place.belongsToMany(Trip, { through: 'Trips_Places' });

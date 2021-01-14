@@ -1,9 +1,8 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './styles.css'
+import 'tailwindcss/tailwind.css'
 
 import type { AppProps } from 'next/app'
-import { Header } from '../components/Header'
-import { Footer } from '../components/Footer'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 import Router from 'next/router'
 
 import { Provider } from 'react-redux'
@@ -12,7 +11,9 @@ import { store } from '../redux/store'
 import { Auth0Provider } from '@auth0/auth0-react'
 import { REDIRECT_URI } from '../config'
 
-const Layout = ({ children }) => <div className="layout">{children}</div>
+const Layout = ({ children }) => (
+  <div className="layout relative min-h-screen bg-gray-100">{children}</div>
+)
 
 const onRedirectCallback = (appState: any) => {
   // Use Next.js's Router.replace method to replace the url

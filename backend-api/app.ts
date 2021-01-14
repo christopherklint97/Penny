@@ -1,7 +1,7 @@
 /** Express app for penny. */
 import { NextFunction, Request, Response } from 'express';
-import ExpressError from './helpers/expressError';
-// import usersRoutes from './controllers/users';
+import ExpressError from './services/expressError';
+import placeRoutes from './controllers/places';
 import userRoutes from './controllers/user';
 import mainRoutes from './controllers/index';
 import sequelize from './models/db';
@@ -11,7 +11,6 @@ import * as cors from 'cors';
 import * as helmet from 'helmet';
 import * as morgan from 'morgan';
 import * as express from 'express';
-import { FRONTEND_URL } from './config';
 const app = express();
 
 // sync database
@@ -43,7 +42,7 @@ app.use(cors());
 // adding morgan to log HTTP requests
 app.use(morgan('combined'));
 
-// app.use('/users', usersRoutes);
+app.use('/places', placeRoutes);
 app.use('/users', userRoutes);
 app.use('', mainRoutes);
 

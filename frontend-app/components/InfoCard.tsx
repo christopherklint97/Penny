@@ -1,12 +1,4 @@
-import {
-  Col,
-  Row,
-  Card,
-  CardImg,
-  CardBody,
-  CardTitle,
-  CardText,
-} from 'reactstrap'
+import Image from 'next/image'
 
 interface InfoCardProps {
   img: string
@@ -14,26 +6,20 @@ interface InfoCardProps {
   body: string
 }
 
-export function InfoCard({ img, title, body }: InfoCardProps) {
+export default function InfoCard({ img, title, body }: InfoCardProps) {
   return (
-    <Row className="my-5">
-      <Col className="text-center">
-        <Card className="shadow p-3 mb-5 bg-white rounded">
-          <Row>
-            <Col md="6">
-              <CardImg width="100%" src={img} alt="" />
-            </Col>
-            <Col className="d-flex align-items-center">
-              <CardBody>
-                <CardTitle tag="h4" className="yellowtail">
-                  {title}
-                </CardTitle>
-                <CardText>{body}</CardText>
-              </CardBody>
-            </Col>
-          </Row>
-        </Card>
-      </Col>
-    </Row>
+    <div className="grid sm:grid-cols-2 shadow-md p-2 my-10 max-w-4xl mx-auto rounded-xl text-center justify-center align-middle">
+      <Image
+        className="p-1 mr-auto rounded-lg"
+        src={img}
+        alt=""
+        width="500"
+        height="300"
+      />
+      <div className="p-3 my-auto">
+        <h2 className="text-lg mx-auto font-semibold mb-3">{title}</h2>
+        <p className="mx-auto">{body}</p>
+      </div>
+    </div>
   )
 }

@@ -12,6 +12,8 @@ const BACKEND_URL = process.env.BACKEND_API_URL;
 
 const FRONTEND_URL = process.env.FRONTEND_URL;
 
+const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY;
+
 // database is:
 //
 // - on Heroku or local, get from .env => DATABASE_URL
@@ -25,4 +27,11 @@ if (process.env.NODE_ENV === 'test') {
   DB_URI = process.env.DATABASE_URL;
 }
 
-export { SECRET_KEY, PORT, DB_URI, BACKEND_URL, FRONTEND_URL };
+export {
+  SECRET_KEY,
+  PORT,
+  DB_URI,
+  BACKEND_URL,
+  FRONTEND_URL,
+  GOOGLE_MAPS_API_KEY,
+};

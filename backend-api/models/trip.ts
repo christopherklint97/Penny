@@ -4,7 +4,7 @@ import User from './user';
 
 /** Database model and related functions for cities. */
 
-export default class City extends Model {
+export default class Trip extends Model {
   public id: number;
   public name: string;
   public lat: number;
@@ -12,7 +12,7 @@ export default class City extends Model {
   public hasMany: HasMany;
 }
 
-City.init(
+Trip.init(
   {
     // Model attributes are defined here
     id: {
@@ -20,7 +20,7 @@ City.init(
       autoIncrement: true,
       primaryKey: true,
     },
-    name: {
+    cityName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -36,9 +36,9 @@ City.init(
   {
     // Other model options go here
     sequelize, // We need to pass the connection instance
-    modelName: 'City', // We need to choose the model name
+    modelName: 'Trip', // We need to choose the model name
   },
 );
 
 // Setup a One-to-Many relationship from User and City
-User.hasMany(City);
+User.hasMany(Trip);

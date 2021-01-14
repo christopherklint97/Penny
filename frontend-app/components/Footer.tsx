@@ -1,23 +1,16 @@
-import { Navbar, Nav, NavItem, NavLink } from 'reactstrap'
-import styles from './Footer.module.css'
-
-export function Footer() {
+export default function Footer() {
   return (
-    <Navbar expand="md" className={styles.blueBg}>
-      <Nav
-        className={`${styles.whiteText} ml-auto d-flex justify-content-center`}
-        navbar
-      >
-        <NavItem>
-          <NavLink
-            href="https://github.com/christopherklint97/Penny"
-            className={`${styles.whiteText} yellowtail`}
-            target="_blank"
-          >
-            Made with love on Github
-          </NavLink>
-        </NavItem>
-      </Nav>
-    </Navbar>
+    <nav className="p-3 h-16 italic underline absolute bottom-0 w-full bg-blue-700 text-gray-50">
+      <div className="md:w-5/6 flex flex-row justify-end mx-auto">
+        <a
+          href="https://github.com/christopherklint97/Penny"
+          target="_blank"
+          rel="noreferrer"
+          className="hover:text-gray-300"
+        >
+          Made with love on Github
+        </a>
+      </div>
+    </nav>
   )
 }

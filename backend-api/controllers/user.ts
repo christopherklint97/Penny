@@ -1,11 +1,11 @@
 /** Routes for authentication. */
 import { Request, Response, NextFunction, Router } from 'express';
 import User from '../models/user';
-import createToken from '../helpers/createToken';
+import createToken from '../services/createToken';
 
 const router = Router();
 
-router.post('/add', function (req: Request, res: Response) {
+router.post('/', function (req: Request, res: Response) {
   const user: any = req.body.user;
 
   interface UserDefaults {
