@@ -5,8 +5,9 @@ import Trip from './trip';
 /** Database model and related functions for gplaces. */
 
 export default class Place extends Model {
-  public id: number;
+  public id: string;
   public name: string;
+  public photo: string;
   public lat: number;
   public lng: number;
   public belongsToMany: BelongsToMany;
@@ -15,33 +16,24 @@ export default class Place extends Model {
 Place.init(
   {
     // Model attributes are defined here
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    lat: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    lng: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    name: { type: DataTypes.STRING, allowNull: false },
+    place_id: { type: DataTypes.STRING, allowNull: false },
+    photo: { type: DataTypes.STRING, allowNull: false },
+    lat: { type: DataTypes.FLOAT, allowNull: false },
+    lng: { type: DataTypes.FLOAT, allowNull: false },
   },
   {
     // Other model options go here
     sequelize, // We need to pass the connection instance
     modelName: 'Place', // We need to choose the model name
+    tableName: 'places',
   },
 );
 
-// User can have many groups (many-to-many relationship)
-Trip.belongsToMany(Place, { through: 'Trips_Places' });
-
-// Group can have many users (many-to-many relationship)
-Place.belongsToMany(Trip, { through: 'Trips_Places' });
+// Setup a One-to-Many relationship for Trip to Place
+Trip.hasMany(Place, {
+  onDelete: 'CASCADE',
+  sourceKey: 'id',
+  foreignKey: 'tripId',
+});

@@ -7,7 +7,7 @@ export default function Header() {
   const { isAuthenticated } = useAuth0()
 
   return (
-    <nav className="p-3 bg-blue-700 text-gray-50">
+    <nav className="h-14 p-3 bg-blue-700 text-gray-50">
       <div className="flex flex-row justify-between md:w-5/6 mx-auto">
         <a href="/" className="my-auto">
           <Image
@@ -18,13 +18,7 @@ export default function Header() {
             height="30"
           />
         </a>
-        {!isAuthenticated ? (
-          <LoginButton />
-        ) : (
-          <span>
-            <LogoutButton />
-          </span>
-        )}
+        {!isAuthenticated ? <LoginButton /> : <LogoutButton />}
       </div>
     </nav>
   )

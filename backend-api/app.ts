@@ -2,6 +2,8 @@
 import { NextFunction, Request, Response } from 'express';
 import ExpressError from './services/expressError';
 import placeRoutes from './controllers/places';
+import cityRoutes from './controllers/cities';
+import tripRoutes from './controllers/trips';
 import userRoutes from './controllers/user';
 import mainRoutes from './controllers/index';
 import sequelize from './models/db';
@@ -14,12 +16,12 @@ import * as express from 'express';
 const app = express();
 
 // sync database
-(async () => await sequelize.sync({ force: true }))();
+(async () => await sequelize.sync({ alter: true }))();
 
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-// JWT token is checked using middleware
+// JWT token is checked using middleware for all routes
 const jwtCheck = jwt({
   secret: jwks.expressJwtSecret({
     cache: true,
@@ -37,12 +39,18 @@ app.use(jwtCheck);
 app.use(helmet());
 
 // enabling CORS for all requests
-app.use(cors());
+app.use(
+  cors({
+    origin: true,
+  }),
+);
 
 // adding morgan to log HTTP requests
 app.use(morgan('combined'));
 
 app.use('/places', placeRoutes);
+app.use('/cities', cityRoutes);
+app.use('/trips', tripRoutes);
 app.use('/users', userRoutes);
 app.use('', mainRoutes);
 

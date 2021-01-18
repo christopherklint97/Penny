@@ -1,7 +1,6 @@
 /** Routes for authentication. */
-import { Request, Response, NextFunction, Router } from 'express';
+import { Request, Response, Router } from 'express';
 import User from '../models/user';
-import createToken from '../services/createToken';
 
 const router = Router();
 
@@ -22,14 +21,14 @@ router.post('/', function (req: Request, res: Response) {
   // getting info about the user logged in and
   //   1. create the user if it does not exist
   //   2. fetch the user from the database if it does exist
-  //   3. sending a jwt with user id for session
   User.findOrCreate({
     where: { facebookId: user.sub.split('|')[1] },
     defaults: userInfo,
-  }).then(([user]) => {
-    const token = createToken(user);
-    res.json(token);
-  });
+  })
+    .then(() => {
+      res.json({ message: 'Authentication was successful.' });
+    })
+    .catch((e) => console.log(e));
 });
 
 export default router;

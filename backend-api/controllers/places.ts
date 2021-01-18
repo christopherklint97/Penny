@@ -1,11 +1,20 @@
 import { Request, Response, Router } from 'express';
-import { searchForPlace } from '../services/googlePlaces';
+import { addPlace } from '../services/places';
+import { getPlaceDetails } from '../services/googlePlaces';
 
 const router = Router();
 
-router.get('/', (req: Request, res: Response) => {
-  const text = req.params.search;
-  res.json(searchForPlace(text));
+router.post('/', async (req: Request, res: Response) => {
+  const name = req.body.name;
+  const tripId = Number(req.body.tripId);
+  const result = await addPlace(name as string, tripId as number);
+  res.json(result);
+});
+
+router.get('/:id', async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await getPlaceDetails(id as string);
+  res.json(result);
 });
 
 export default router;

@@ -3,14 +3,14 @@ import Image from 'next/image'
 interface InfoCardProps {
   img: string
   title: string
-  body: string
+  body?: string
 }
 
-export default function InfoCard({ img, title, body }: InfoCardProps) {
+export default function InfoCard({ img, title, body = '' }: InfoCardProps) {
   return (
     <div className="grid sm:grid-cols-2 shadow-md p-2 my-10 max-w-4xl mx-auto rounded-xl text-center justify-center align-middle">
       <Image
-        className="p-1 mr-auto rounded-lg"
+        className="p-1 mr-auto rounded-lg object-cover"
         src={img}
         alt=""
         width="500"

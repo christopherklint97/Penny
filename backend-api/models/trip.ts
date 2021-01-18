@@ -6,7 +6,9 @@ import User from './user';
 
 export default class Trip extends Model {
   public id: number;
-  public name: string;
+  public cityName: string;
+  public cityId: string;
+  public photo: string;
   public lat: number;
   public lng: number;
   public hasMany: HasMany;
@@ -15,30 +17,24 @@ export default class Trip extends Model {
 Trip.init(
   {
     // Model attributes are defined here
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-    },
-    cityName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    lat: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    lng: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+    id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
+    cityName: { type: DataTypes.STRING, allowNull: false },
+    cityId: { type: DataTypes.STRING, allowNull: false },
+    photo: { type: DataTypes.STRING, allowNull: false },
+    lat: { type: DataTypes.FLOAT, allowNull: false },
+    lng: { type: DataTypes.FLOAT, allowNull: false },
   },
   {
     // Other model options go here
     sequelize, // We need to pass the connection instance
     modelName: 'Trip', // We need to choose the model name
+    tableName: 'trips',
   },
 );
 
-// Setup a One-to-Many relationship from User and City
-User.hasMany(Trip);
+// Setup a One-to-Many relationship for User to Trip
+User.hasMany(Trip, {
+  onDelete: 'CASCADE',
+  sourceKey: 'facebookId',
+  foreignKey: 'userId',
+});

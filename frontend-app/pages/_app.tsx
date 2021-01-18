@@ -1,15 +1,13 @@
 import 'tailwindcss/tailwind.css'
-
 import type { AppProps } from 'next/app'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Router from 'next/router'
-
 import { Provider } from 'react-redux'
 import { store } from '../redux/store'
-
 import { Auth0Provider } from '@auth0/auth0-react'
 import { REDIRECT_URI } from '../config'
+import React from 'react'
 
 const Layout = ({ children }) => (
   <div className="layout relative min-h-screen bg-gray-100">{children}</div>
