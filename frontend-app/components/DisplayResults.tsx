@@ -18,11 +18,11 @@ export default function DisplayResults({
     if (select.place_id === city.place_id) {
       return (
         <div
-          className="shadow-md cursor-pointer bg-green-100 text-left w-60 justify-center align-middle rounded-md mb-2"
+          className="justify-center mb-2 text-left align-middle bg-yellow-100 rounded-md shadow-md cursor-pointer w-60"
           key={city.place_id}
         >
           <p
-            className="text-sm mx-auto p-2"
+            className="p-2 mx-auto text-sm"
             id={city.place_id}
             onClick={handleClick}
           >
@@ -33,11 +33,11 @@ export default function DisplayResults({
     } else {
       return (
         <div
-          className="shadow-md cursor-pointer hover:bg-green-100 text-left w-60 justify-center align-middle bg-gray-50 rounded-md mb-2"
+          className="justify-center mb-2 text-left align-middle rounded-md shadow-md cursor-pointer hover:bg-gray-200 w-60 bg-gray-50"
           key={city.place_id}
         >
           <p
-            className="text-sm mx-auto p-2"
+            className="p-2 mx-auto text-sm"
             id={city.place_id}
             onClick={handleClick}
           >

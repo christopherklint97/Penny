@@ -34,6 +34,7 @@ Trip.init(
 
 // Setup a One-to-Many relationship for User to Trip
 User.hasMany(Trip, {
+  as: 'trips',
   onDelete: 'CASCADE',
   sourceKey: 'facebookId',
   foreignKey: 'userId',

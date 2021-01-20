@@ -41,7 +41,7 @@ export default function SaveTripButton({ city }: SaveTripButtonProps) {
 
   return (
     <button
-      className="mt-2 px-2 py-1 bg-blue-200 rounded-md shadow-md hover:bg-blue-300 mb-4 cursor-pointer"
+      className="px-2 py-1 mt-2 mb-4 bg-blue-200 rounded-md shadow-md cursor-pointer hover:bg-blue-300"
       onClick={() => saveCity(city)}
     >
       Save trip

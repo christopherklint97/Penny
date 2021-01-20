@@ -7,8 +7,8 @@ export default function Header() {
   const { isAuthenticated } = useAuth0()
 
   return (
-    <nav className="h-14 p-3 bg-blue-700 text-gray-50">
-      <div className="flex flex-row justify-between md:w-5/6 mx-auto">
+    <nav className="p-3 bg-blue-300 h-14 text-gray-50">
+      <div className="flex flex-row justify-between mx-auto md:w-5/6">
         <a href="/" className="my-auto">
           <Image
             className="rounded-md"

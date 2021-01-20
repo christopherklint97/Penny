@@ -7,7 +7,7 @@ const LogoutButton = () => {
 
   return (
     <button
-      className="bg-gray-100 hover:bg-gray-300 text-gray-900 px-3 py-1 rounded-md"
+      className="px-3 py-1 text-gray-900 bg-gray-100 rounded-md hover:bg-gray-300"
       onClick={() => logout({ returnTo: FRONTEND_URL })}
     >
       Logout

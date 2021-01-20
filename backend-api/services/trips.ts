@@ -1,3 +1,4 @@
+import Place from '../models/place';
 import Trip from '../models/trip';
 
 async function addTrip(city: any, userId: string) {
@@ -27,11 +28,26 @@ async function getAllTrips(userId: string) {
 
 async function getTrip(userId: string, tripId: number) {
   try {
-    const trip = await Trip.findOne({ where: { userId: userId, id: tripId } });
+    const trip = await Trip.findOne({
+      where: { userId: userId, id: tripId },
+      include: { model: Place, as: 'places' },
+    });
     return trip;
   } catch (e) {
     console.log(e);
   }
 }
 
-export { addTrip, getAllTrips, getTrip };
+async function deleteTrip(userId: string, tripId: number) {
+  try {
+    const trip = await Trip.findOne({
+      where: { userId: userId, id: tripId },
+      include: { model: Place, as: 'places' },
+    });
+    await trip.destroy();
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+export { addTrip, getAllTrips, getTrip, deleteTrip };

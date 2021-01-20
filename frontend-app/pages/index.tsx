@@ -5,16 +5,19 @@ import LoginButton from '../components/LoginButton'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useRouter } from 'next/router'
 
+/**
+ * Homepage for Penny
+ */
 const Home = () => {
   const { isAuthenticated } = useAuth0()
   const router = useRouter()
 
   if (isAuthenticated) {
     router.push('/dashboard')
-    return <p className="text-center py-10">Loading...</p>
+    return <p className="py-10 text-center">Loading...</p>
   } else {
     return (
-      <div className="pb-28 w-3/4 mx-auto">
+      <div className="w-3/4 mx-auto pb-28">
         <Head>
           <title>Penny</title>
           <link rel="icon" href="/favicon.ico" />

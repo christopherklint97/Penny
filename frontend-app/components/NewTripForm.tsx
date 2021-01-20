@@ -16,18 +16,18 @@ export default function NewTripForm({ onSubmit }: NewTripFormProps) {
         Name of city
       </label>
       <input
-        className="px-2 py-1 shadow-md focus:ring-2 focus:outline-none rounded-md mr-3 mb-2 w-60"
+        className="px-2 py-1 mb-2 mr-3 rounded-md shadow-md focus:ring-2 focus:outline-none w-60"
         name="city"
         ref={register({ required: true })}
         placeholder="London, Paris, Barcelona..."
       />
       {/* errors will return when field validation fails  */}
       {errors.city && (
-        <p className="text-red-900 text-sm">This field is required</p>
+        <p className="text-sm text-red-900">This field is required</p>
       )}
 
       <input
-        className="px-2 py-1 bg-green-200 rounded-md shadow-md hover:bg-green-300 mb-4 cursor-pointer"
+        className="px-2 py-1 mb-4 bg-green-100 rounded-md shadow-md cursor-pointer hover:bg-green-200"
         type="submit"
         value="Search"
       />

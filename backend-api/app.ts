@@ -16,24 +16,26 @@ import * as express from 'express';
 const app = express();
 
 // sync database
-(async () => await sequelize.sync({ alter: true }))();
+(async () => await sequelize.sync())();
 
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-// JWT token is checked using middleware for all routes
-const jwtCheck = jwt({
-  secret: jwks.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: 'https://dev-5p5e86yy.eu.auth0.com/.well-known/jwks.json',
-  }),
-  audience: 'https://penny.api.christopherklint.com/',
-  issuer: 'https://dev-5p5e86yy.eu.auth0.com/',
-  algorithms: ['RS256'],
-});
-app.use(jwtCheck);
+// JWT token is checked using middleware for all routes, except when testing
+if (process.env.NODE_ENV !== 'test') {
+  const jwtCheck = jwt({
+    secret: jwks.expressJwtSecret({
+      cache: true,
+      rateLimit: true,
+      jwksRequestsPerMinute: 5,
+      jwksUri: 'https://dev-5p5e86yy.eu.auth0.com/.well-known/jwks.json',
+    }),
+    audience: 'https://penny.api.christopherklint.com/',
+    issuer: 'https://dev-5p5e86yy.eu.auth0.com/',
+    algorithms: ['RS256'],
+  });
+  app.use(jwtCheck);
+}
 
 // adding Helmet to enhance your API's security
 app.use(helmet());

@@ -3,9 +3,9 @@ import Link from 'next/link'
 export default function AddNewButton({ link, text }) {
   return (
     <Link href={link}>
-      <div className="flex flex-row justify-center w-24 mx-auto shadow-lg rounded-md p-1 hover:bg-green-100 cursor-pointer">
+      <div className="flex flex-row justify-center w-24 p-1 mx-auto text-gray-900 bg-blue-300 rounded-md shadow-lg cursor-pointer hover:bg-blue-400">
         <svg
-          className="fill-current text-green-800 my-auto mr-1"
+          className="my-auto mr-1 text-gray-900 fill-current"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="black"

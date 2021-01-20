@@ -6,11 +6,11 @@ async function addPlace(name: string, tripId: number) {
     const placeId = await getPlaceId(name);
     const place = await getPlaceDetails(placeId);
     const newPlace = await Place.create({
-      name: place.name,
-      place_id: place.place_id,
-      photo: place.photos[0].photo_reference,
-      lat: place.geometry.location.lat,
-      lng: place.geometry.location.lng,
+      name: place.result.name,
+      place_id: place.result.place_id,
+      photo: place.result.photos[0].photo_reference,
+      lat: place.result.geometry.location.lat,
+      lng: place.result.geometry.location.lng,
       tripId: tripId,
     });
     return newPlace;
@@ -19,4 +19,15 @@ async function addPlace(name: string, tripId: number) {
   }
 }
 
-export { addPlace };
+async function deletePlace(placeId: number) {
+  try {
+    const place = await Place.findOne({
+      where: { id: placeId },
+    });
+    await place.destroy();
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+export { addPlace, deletePlace };

@@ -8,12 +8,6 @@
     "dev:debug": "nodemon --config nodemon.json --inspect-brk server.ts",
     "test": "jest -i"
   },
-  "jest": {
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "config.js"
-    ]
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -31,9 +25,6 @@
     "jwks-rsa": "^1.12.2",
     "locus": "2.0.1",
     "morgan": "^1.10.0",
-    "passport": "^0.4.1",
-    "passport-facebook": "^3.0.0",
-    "passport-google-oauth20": "^2.0.0",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.5"
@@ -41,20 +32,21 @@
   "devDependencies": {
     "@types/express": "^4.17.9",
     "@types/express-jwt": "^6.0.0",
-    "@types/jest": "^26.0.15",
+    "@types/jest": "^26.0.20",
     "@types/jsonwebtoken": "^8.5.0",
     "@types/node": "^14.14.20",
-    "@types/passport-facebook": "^2.1.10",
-    "@types/passport-google-oauth20": "^2.0.6",
     "@types/supertest": "^2.0.10",
     "@types/validator": "^13.1.2",
     "@typescript-eslint/eslint-plugin": "^4.6.1",
     "@typescript-eslint/parser": "^4.6.1",
+    "babel-cli": "^6.18.0",
+    "babel-preset-env": "^1.7.0",
     "jest": "^26.6.3",
     "nodemon": "^2.0.7",
     "prettier": "^2.1.2",
-    "supertest": "^3.1.0",
-    "ts-jest": "^26.4.3",
+    "superagent": "^3.8.3",
+    "supertest": "^3.4.2",
+    "ts-jest": "^26.4.4",
     "ts-node": "^9.1.1",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^4.1.3"

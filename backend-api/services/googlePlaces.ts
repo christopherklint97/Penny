@@ -2,6 +2,7 @@ import { GOOGLE_MAPS_API_KEY } from '../config';
 import axios from 'axios';
 
 /** Google Places API services. */
+
 async function getPlaceDetails(id: string) {
   try {
     const res = await axios.get(

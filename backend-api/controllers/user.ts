@@ -3,7 +3,7 @@ import { Request, Response, Router } from 'express';
 import User from '../models/user';
 
 const router = Router();
-
+// adds a user to the database
 router.post('/', function (req: Request, res: Response) {
   const user: any = req.body.user;
 

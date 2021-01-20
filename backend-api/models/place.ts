@@ -2,11 +2,12 @@ import sequelize from './db';
 import { Model, DataTypes, BelongsToMany } from 'sequelize';
 import Trip from './trip';
 
-/** Database model and related functions for gplaces. */
+/** Database model and related functions for places. */
 
 export default class Place extends Model {
   public id: string;
   public name: string;
+  public place_id: string;
   public photo: string;
   public lat: number;
   public lng: number;
@@ -33,6 +34,7 @@ Place.init(
 
 // Setup a One-to-Many relationship for Trip to Place
 Trip.hasMany(Place, {
+  as: 'places',
   onDelete: 'CASCADE',
   sourceKey: 'id',
   foreignKey: 'tripId',

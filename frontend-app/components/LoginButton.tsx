@@ -6,7 +6,7 @@ const LoginButton = () => {
 
   return (
     <button
-      className="bg-green-400 hover:bg-green-300 text-gray-900 px-3 py-1 rounded-md"
+      className="px-3 py-1 text-gray-900 bg-white rounded-md hover:bg-gray-300"
       onClick={() => loginWithRedirect()}
     >
       Login
