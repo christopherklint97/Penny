@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewPlaceForm component matches snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="text-center"
+  >
+    <input
+      class="px-2 py-1 shadow-md focus:ring-2 focus:outline-none rounded-md mr-3 mb-2 w-3/4"
+      name="place"
+      placeholder="Start typing for place suggestions..."
+    />
+    <input
+      class="px-2 py-1 bg-blue-300 hover:bg-blue-400 text-gray-900 rounded-md shadow-md mb-4 cursor-pointer"
+      type="submit"
+      value="Add"
+    />
+  </form>
+</DocumentFragment>
+`;

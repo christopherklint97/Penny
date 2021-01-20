@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home page matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="pb-28 w-3/4 mx-auto"
+  >
+    <div
+      class=""
+    >
+      <div>
+        <h1
+          class="text-2xl text-center py-3 mt-5 font-bold"
+        >
+          Say hello to Penny
+        </h1>
+        <p
+          class="text-center pb-3"
+        >
+          Your very own travel planner.
+        </p>
+        <div
+          class="text-center"
+        >
+          <button
+            class="bg-gray-100 hover:bg-gray-300 text-gray-900 px-3 py-1 rounded-md"
+          >
+            Login
+          </button>
+        </div>
+      </div>
+      <div
+        class="grid sm:grid-cols-2 shadow-md p-2 bg-white my-10 max-w-4xl mx-auto rounded-xl text-center justify-center align-middle"
+      >
+        <div
+          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        >
+          <div
+            style="box-sizing: border-box; display: block; max-width: 100%;"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              role="presentation"
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+              style="max-width: 100%; display: block;"
+            />
+          </div>
+          <img
+            alt=""
+            class="p-1 mr-auto rounded-lg object-cover"
+            decoding="async"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            style="visibility: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          />
+        </div>
+        <div
+          class="p-3 my-auto"
+        >
+          <h2
+            class="text-lg mx-auto font-semibold mb-3"
+          >
+            For the bucket-listers
+          </h2>
+          <p
+            class="mx-auto"
+          >
+            Keep all of your cities gathered in one place.
+          </p>
+        </div>
+      </div>
+      <div
+        class="grid sm:grid-cols-2 shadow-md p-2 bg-white my-10 max-w-4xl mx-auto rounded-xl text-center justify-center align-middle"
+      >
+        <div
+          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        >
+          <div
+            style="box-sizing: border-box; display: block; max-width: 100%;"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              role="presentation"
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+              style="max-width: 100%; display: block;"
+            />
+          </div>
+          <img
+            alt=""
+            class="p-1 mr-auto rounded-lg object-cover"
+            decoding="async"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            style="visibility: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          />
+        </div>
+        <div
+          class="p-3 my-auto"
+        >
+          <h2
+            class="text-lg mx-auto font-semibold mb-3"
+          >
+            For the organizers
+          </h2>
+          <p
+            class="mx-auto"
+          >
+            Take care of the hard part of sightseeing: planning.
+          </p>
+        </div>
+      </div>
+      <div
+        class="grid sm:grid-cols-2 shadow-md p-2 bg-white my-10 max-w-4xl mx-auto rounded-xl text-center justify-center align-middle"
+      >
+        <div
+          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        >
+          <div
+            style="box-sizing: border-box; display: block; max-width: 100%;"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              role="presentation"
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+              style="max-width: 100%; display: block;"
+            />
+          </div>
+          <img
+            alt=""
+            class="p-1 mr-auto rounded-lg object-cover"
+            decoding="async"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            style="visibility: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          />
+        </div>
+        <div
+          class="p-3 my-auto"
+        >
+          <h2
+            class="text-lg mx-auto font-semibold mb-3"
+          >
+            For the travelers
+          </h2>
+          <p
+            class="mx-auto"
+          >
+            Get inspiration fast for the ultimate next stop.
+          </p>
+        </div>
+      </div>
+      <div>
+        <h1
+          class="text-2xl text-center py-3 mt-5 font-bold"
+        >
+          Get started
+        </h1>
+        <p
+          class="text-center pb-3"
+        >
+          Login to create your first trip!
+        </p>
+        <div
+          class="text-center"
+        >
+          <button
+            class="bg-gray-100 hover:bg-gray-300 text-gray-900 px-3 py-1 rounded-md"
+          >
+            Login
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component matches snapshot 1`] = `
+<DocumentFragment>
+  <nav
+    class="p-3 h-14 inset-x-0 italic underline absolute bottom-0 w-full bg-blue-300 text-gray-800"
+  >
+    <div
+      class="md:w-5/6 flex flex-row justify-end mx-auto"
+    >
+      <a
+        class="hover:text-gray-600"
+        href="https://github.com/christopherklint97/Penny"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Made with love on Github
+      </a>
+    </div>
+  </nav>
+</DocumentFragment>
+`;

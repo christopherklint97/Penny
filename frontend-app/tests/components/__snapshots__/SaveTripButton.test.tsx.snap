@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SaveTripButton component matches snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="mt-2 px-2 py-1 bg-blue-200 rounded-md shadow-md hover:bg-blue-300 mb-4 cursor-pointer"
+  >
+    Save trip
+  </button>
+</DocumentFragment>
+`;
