@@ -1,6 +1,6 @@
-# What is [Penny](penny.christopherklint.com)?
+# What is [Penny](https://penny.christopherklint.com)?
 
-[Penny](penny.christopherklint.com) is a travel planner that is integrated with Facebook API through Oauth login functionality, Google Maps API for places and cities, and Open Weather API for receiving the current weather.
+[Penny](https://penny.christopherklint.com) is a travel planner that is integrated with Facebook API through Oauth login functionality, Google Maps API for places and cities, and Open Weather API for receiving the current weather.
 
 I chose these features because I wanted to keep the web app fast and simple while allowing for the user to do as much travel planning as they wanted to do. Having a lean web application with the possibility for more features later on was the way to go!
 
