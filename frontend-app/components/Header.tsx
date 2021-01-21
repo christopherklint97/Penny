@@ -12,7 +12,7 @@ export default function Header() {
         <a href="/" className="my-auto">
           <Image
             className="rounded-md"
-            src="/../public/logo.png"
+            src="/logo.png"
             alt=""
             width="30"
             height="30"

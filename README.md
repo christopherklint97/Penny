@@ -4,10 +4,6 @@
 
 I chose these features because I wanted to keep the web app fast and simple while allowing for the user to do as much travel planning as they wanted to do. Having a lean web application with the possibility for more features later on was the way to go!
 
-## Important note
-
-Since the Facebook login is in development mode, I need to add you as a user in order for you to access the live version of the app. Please reach out and I will give you access!
-
 ## Standard user flow of Penny
 
 Here is a step by step overview of the user flow for the app:
